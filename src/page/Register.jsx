@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
+
+
+    const handleRegister = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        console.log(name, email, password, photoURL);
+    }
     return (
         <div className="flex items-center justify-center flex-col text-center min-h-screen mt-3">
 
@@ -9,12 +20,13 @@ const Register = () => {
 
                 <p className="text-[#264143] font-extrabold text-2xl ">REGISTER</p>
 
-                <form className="mt-1">
+                <form onSubmit={handleRegister} className="mt-1">
 
                     {/* Name */}
                     <div className="flex flex-col items-start my-2">
                         <label className="font-semibold mb-1">Name</label>
                         <input
+                            name="name"
                             type="text"
                             placeholder="Enter your full name"
                             className="outline-none border-2 border-[#264143] shadow-[3px_4px_0_1px_#E99F4C] w-[290px] p-3 rounded text-[15px] focus:translate-y-1 focus:shadow-[1px_2px_0_0_#E99F4C]"
@@ -25,6 +37,7 @@ const Register = () => {
                     <div className="flex flex-col items-start my-1">
                         <label className="font-semibold mb-1">Email</label>
                         <input
+                            name="email"
                             type="email"
                             placeholder="Enter your email"
                             className="outline-none border-2 border-[#264143] shadow-[3px_4px_0_1px_#E99F4C] w-[290px] p-3 rounded text-[15px] focus:translate-y-1 focus:shadow-[1px_2px_0_0_#E99F4C]"
@@ -35,6 +48,7 @@ const Register = () => {
                     <div className="flex flex-col items-start my-1">
                         <label className="font-semibold mb-1">Password</label>
                         <input
+                            name="password"
                             type="password"
                             placeholder="Enter your password"
                             className="outline-none border-2 border-[#264143] shadow-[3px_4px_0_1px_#E99F4C] w-[290px] p-3 rounded text-[15px] focus:translate-y-1 focus:shadow-[1px_2px_0_0_#E99F4C]"
@@ -45,6 +59,7 @@ const Register = () => {
                     <div className="flex flex-col items-start my-1">
                         <label className="font-semibold mb-1">Photo URL</label>
                         <input
+                            name="photoURL"
                             type="text"
                             placeholder="Your profile photo URL"
                             className="outline-none border-2 border-[#264143] shadow-[3px_4px_0_1px_#E99F4C] w-[290px] p-3 rounded text-[15px] focus:translate-y-1 focus:shadow-[1px_2px_0_0_#E99F4C]"
