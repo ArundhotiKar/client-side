@@ -9,7 +9,7 @@ const Home = () => {
         <div>
             <Slider></Slider>
             <CategorySection></CategorySection>
-            
+            <WhyAdoptSection></WhyAdoptSection>
         </div>
     );
 };
