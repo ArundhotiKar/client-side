@@ -1,29 +1,25 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { AuthContext } from '../Provider/AuthProvider';
-import { toast } from 'react-toastify';
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navber = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-      .then(() => {
-        toast.success("Logout Successful!");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      .then(() => toast.success("Logout Successful!"))
+      .catch((err) => console.error(err));
   };
 
   return (
-    <nav className="w-full bg-white shadow-md">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-5 px-6">
+    <nav className="w-full bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
 
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <svg width="40" height="40" viewBox="0 0 64 64" fill="#ff7f00">
             <circle cx="20" cy="20" r="8" />
             <circle cx="44" cy="20" r="8" />
@@ -34,36 +30,41 @@ const Navber = () => {
           <h1 className="text-3xl font-bold text-orange-600">
             Paw<span className="text-blue-600">Mart</span>
           </h1>
-        </div>
+        </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 text-xl font-medium">
-          <Link to="/" className="hover:text-orange-600">Home</Link>
-          <Link to="/pets" className="hover:text-orange-600">Pets & Supplies</Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-10 text-lg font-medium">
+          <Link to="/" className="hover:text-orange-600 transition">Home</Link>
+          <Link to="/pets" className="hover:text-orange-600 transition">Pets & Supplies</Link>
+
+          {/* Logged-in only links */}
+          {user && (
+            <>
+              <Link to="/add-listing" className="hover:text-orange-600">Add Listing</Link>
+              <Link to="/my-listings" className="hover:text-orange-600">My Listings</Link>
+              <Link to="/my-orders" className="hover:text-orange-600">My Orders</Link>
+            </>
+          )}
         </div>
 
         {/* Desktop Auth */}
         <div className="hidden md:flex items-center gap-6">
           {user ? (
             <>
-              {/* Profile */}
               <div className="relative group">
                 <img
-                  src={user?.photoURL || "/default-avatar.png"}
-                  alt={user?.displayName || "User"}
-                  className="w-15 h-15 rounded-full border border-gray-300"
+                  src={user.photoURL || "/default-avatar.png"}
+                  className="w-12 h-12 rounded-full border object-cover"
+                  alt="profile"
                 />
-                <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 
-                  bg-amber-700 text-white text-sm px-4 py-1 rounded-md 
-                  opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap">
-                  {user?.displayName || "User"}
+                <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-amber-700 text-white text-sm px-4 py-1 rounded-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
+                  {user.displayName}
                 </span>
               </div>
 
-              {/* Logout */}
               <button
                 onClick={handleLogout}
-                className="text-white bg-red-600 px-5 py-2 rounded-md hover:bg-red-700 text-lg"
+                className="bg-red-600 text-white px-5 py-2 rounded-md hover:bg-red-700"
               >
                 Logout
               </button>
@@ -73,7 +74,7 @@ const Navber = () => {
               <Link to="/login" className="hover:text-blue-600 text-lg">Login</Link>
               <Link
                 to="/register"
-                className="text-white bg-blue-600 px-5 py-2 rounded-md hover:bg-blue-700 text-lg"
+                className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 text-lg"
               >
                 Register
               </Link>
@@ -81,31 +82,40 @@ const Navber = () => {
           )}
         </div>
 
-        {/* Mobile Hamburger */}
-        <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
+        {/* Mobile Icon */}
+        <button
+          className="md:hidden"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={30} /> : <Menu size={30} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden flex flex-col items-center bg-white pb-6">
-          <Link to="/" className="py-3 hover:text-orange-600 text-lg">Home</Link>
-          <Link to="/pets" className="py-3 hover:text-orange-600 text-lg">Pets & Supplies</Link>
+      {/* Mobile Dropdown Menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-[600px]" : "max-h-0"
+        }`}
+      >
+        <div className="flex flex-col items-center bg-white pb-6 pt-2">
 
-          {user ? (
+          <Link to="/" className="py-3 text-lg hover:text-orange-600">Home</Link>
+          <Link to="/pets" className="py-3 text-lg hover:text-orange-600">Pets & Supplies</Link>
+
+          {/* Logged-in only */}
+          {user && (
             <>
-              {/* Mobile Profile */}
-              <img
-                src={user?.photoURL || "/default-avatar.png"}
-                alt={user?.displayName || "User"}
-                className="w-20 h-20 rounded-full my-4 border border-gray-300"
-              />
-              <span className="mb-3 text-base font-medium">{user?.displayName || "User"}</span>
+              <Link to="/add-listing" className="py-3 text-lg hover:text-orange-600">Add Listing</Link>
+              <Link to="/my-listings" className="py-3 text-lg hover:text-orange-600">My Listings</Link>
+              <Link to="/my-orders" className="py-3 text-lg hover:text-orange-600">My Orders</Link>
 
-              {/* Logout */}
+              <img
+                src={user.photoURL || "/default-avatar.png"}
+                className="w-20 h-20 rounded-full border my-4 object-cover"
+                alt="profile"
+              />
+              <p className="text-base font-medium mb-3">{user.displayName}</p>
+
               <button
                 onClick={handleLogout}
                 className="py-3 text-white bg-red-600 px-6 rounded-md hover:bg-red-700 text-lg"
@@ -113,19 +123,22 @@ const Navber = () => {
                 Logout
               </button>
             </>
-          ) : (
+          )}
+
+          {/* If not logged in */}
+          {!user && (
             <>
-              <Link to="/login" className="py-3 hover:text-blue-600 text-lg">Login</Link>
+              <Link to="/login" className="py-3 text-lg hover:text-blue-600">Login</Link>
               <Link
                 to="/register"
-                className="py-3 text-white bg-blue-600 px-6 rounded-md hover:bg-blue-700 text-lg"
+                className="py-3 bg-blue-600 text-white px-6 rounded-md hover:bg-blue-700 text-lg"
               >
                 Register
               </Link>
             </>
           )}
         </div>
-      )}
+      </div>
     </nav>
   );
 };

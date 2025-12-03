@@ -4,6 +4,8 @@ import Register from "../page/Register";
 import Login from "../page/Login";
 import HomePage from "../page/homePage";
 import ErrorPage from "../page/ErrorPage";
+import Home from "../page/Home";
+import CategoryFilteredPage from "../page/CategoryFilteredPage";
 
 
 const router = createBrowserRouter([
@@ -11,21 +13,29 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage></HomePage>,
     children: [
-        {
-            path: "/register",
-            element: <Register></Register>
-        },
-        {
-            path: "/login",
-            element: <Login></Login>
-        }
+      {
+        path: "/",
+        element: <Home></Home>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      }, 
+      {
+        path: "/category-filtered-product/:categoryName",
+        element: <CategoryFilteredPage />
+      }
     ]
   },
   {
     path: "*",
-    element:<ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>
   }
-    
+
 ]);
 
 export default router;

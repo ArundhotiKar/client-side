@@ -1,0 +1,166 @@
+[
+  {
+    "id": 1,
+    "name": "Golden Retriever Puppy",
+    "price": 250,
+    "category": "pets",
+    "image": "https://i.ibb.co.com/vx4cBncX/p1.webp",
+    "description": "Friendly and healthy Golden Retriever puppy."
+  },
+  {
+    "id": 2,
+    "name": "Persian Cat",
+    "price": 180,
+    "category": "pets",
+    "image": "https://i.ibb.co.com/RGGXnrQn/p2.jpg",
+    "description": "Purebred Persian cat, vaccinated and well cared."
+  },
+  {
+    "id": 3,
+    "name": "German Shepherd Puppy",
+    "price": 220,
+    "category": "pets",
+    "image": "https://i.ibb.co.com/5g1Yr427/p3.webp",
+    "description": "Strong and loyal German Shepherd puppy."
+  },
+  {
+    "id": 4,
+    "name": "Parrot (Macaw)",
+    "price": 90,
+    "category": "pets",
+    "image": "https://i.ibb.co.com/4wQL0sBx/p4.webp",
+    "description": "Colorful, trained Macaw parrot."
+  },
+
+  {
+    "id": 5,
+    "name": "Dog Dry Food 2kg",
+    "price": 20,
+    "category": "food",
+    "image": "https://i.ibb.co.com/tMpFn9bc/f1.jpg",
+    "description": "High-nutrition dry food for dogs."
+  },
+  {
+    "id": 6,
+    "name": "Cat Premium Food",
+    "price": 15,
+    "category": "food",
+    "image": "https://i.ibb.co.com/SD1Mmj8x/f2.jpg",
+    "description": "Protein-rich cat food ideal for adult cats."
+  },
+  {
+    "id": 7,
+    "name": "Fish Food Pack",
+    "price": 8,
+    "category": "food",
+    "image": "https://i.ibb.co.com/RTxpprjS/f3.jpg",
+    "description": "Healthy multi-nutrient fish food."
+  },
+  {
+    "id": 8,
+    "name": "Bird Seed Mix",
+    "price": 12,
+    "category": "food",
+    "image": "https://i.ibb.co.com/dsxvrpGX/f5.jpg",
+    "description": "Organic seed mix for parrots & small birds."
+  },
+
+  {
+    "id": 9,
+    "name": "Dog Collar (Adjustable)",
+    "price": 10,
+    "category": "accessories",
+    "image": "https://i.ibb.co.com/jkk8BGPf/a1.jpg",
+    "description": "High-quality adjustable dog collar."
+  },
+  {
+    "id": 10,
+    "name": "Cat Toy Mouse Set",
+    "price": 6,
+    "category": "accessories",
+    "image": "https://i.ibb.co.com/0wYZcYX/a2.webp",
+    "description": "Soft and durable toy mice for cats."
+  },
+  {
+    "id": 11,
+    "name": "Pet Bed Soft Cushion",
+    "price": 35,
+    "category": "accessories",
+    "image": "https://i.ibb.co.com/d0hnN4Wm/a3.jpg",
+    "description": "Comfortable bed suitable for all pets."
+  },
+  {
+    "id": 12,
+    "name": "Dog Leash Rope",
+    "price": 14,
+    "category": "accessories",
+    "image": "https://i.ibb.co.com/zh3TzFWV/a4.webp",
+    "description": "Strong rope leash for dogs up to 30kg."
+  },
+
+  {
+    "id": 13,
+    "name": "Pet Shampoo (Aloe Vera)",
+    "price": 12,
+    "category": "care-products",
+    "image": "https://i.ibb.co.com/b5Zt42GF/c1.jpg",
+    "description": "Gentle shampoo suitable for dogs & cats."
+  },
+  {
+    "id": 14,
+    "name": "Tick & Flea Spray",
+    "price": 18,
+    "category": "care-products",
+    "image": "https://i.ibb.co.com/YT0KkMpM/c2.jpg",
+    "description": "Effective flea and tick removal spray."
+  },
+  {
+    "id": 15,
+    "name": "Pet First Aid Kit",
+    "price": 30,
+    "category": "care-products",
+    "image": "https://i.ibb.co.com/v6L3QMhs/c3.jpg",
+    "description": "Complete first-aid kit for emergency care."
+  },
+  {
+    "id": 16,
+    "name": "Vitamins & Supplements",
+    "price": 22,
+    "category": "care-products",
+    "image": "https://i.ibb.co.com/r2hKX8Lx/c4.jpg",
+    "description": "Daily health supplements for pets."
+  },
+
+  {
+    "id": 17,
+    "name": "Rabbit (Adoption)",
+    "price": 40,
+    "category": "pets",
+    "image": "https://i.ibb.co.com/5VK7rCc/p5.jpg",
+    "description": "Cute white rabbit, easy to care."
+  },
+  {
+    "id": 18,
+    "name": "Small Dog Chew Sticks",
+    "price": 5,
+    "category": "food",
+    "image": "https://i.ibb.co.com/ymNdcs4H/f4.webp",
+    "description": "Tasty chew sticks for small breed dogs."
+  },
+  {
+    "id": 19,
+    "name": "Bird Cage Medium",
+    "price": 45,
+    "category": "accessories",
+    "image": "https://i.ibb.co.com/SXggRfbc/a5.jpg",
+    "description": "Spacious cage for small and medium birds."
+  },
+  {
+    "id": 20,
+    "name": "Pet Ear Cleaner",
+    "price": 9,
+    "category": "care-products",
+    "image": "https://i.ibb.co.com/4wgtRTp6/c5.jpg",
+    "description": "Safe ear-cleaning solution for cats & dogs."
+  }
+]
