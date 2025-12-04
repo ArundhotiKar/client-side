@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -7,12 +7,19 @@ import { toast } from "react-toastify";
 const Navber = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
 
   const handleLogout = () => {
     logOut()
       .then(() => toast.success("Logout Successful!"))
       .catch((err) => console.error(err));
   };
+
+  // Active style function
+  const isActive = (path) =>
+    location.pathname === path
+      ? "text-orange-600 font-semibold"
+      : "hover:text-orange-600";
 
   return (
     <nav className="w-full bg-white shadow-md sticky top-0 z-50">
@@ -34,15 +41,14 @@ const Navber = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10 text-lg font-medium">
-          <Link to="/" className="hover:text-orange-600 transition">Home</Link>
-          <Link to="/pets" className="hover:text-orange-600 transition">Pets & Supplies</Link>
+          <Link to="/" className={isActive("/")}>Home</Link>
+          <Link to="/pets" className={isActive("/pets")}>Pets & Supplies</Link>
 
-          {/* Logged-in only links */}
           {user && (
             <>
-              <Link to="/add-listing" className="hover:text-orange-600">Add Listing</Link>
-              <Link to="/my-listings" className="hover:text-orange-600">My Listings</Link>
-              <Link to="/my-orders" className="hover:text-orange-600">My Orders</Link>
+              <Link to="/add-listing" className={isActive("/add-listing")}>Add Listing</Link>
+              <Link to="/my-listings" className={isActive("/my-listings")}>My Listings</Link>
+              <Link to="/my-orders" className={isActive("/my-orders")}>My Orders</Link>
             </>
           )}
         </div>
@@ -71,10 +77,13 @@ const Navber = () => {
             </>
           ) : (
             <>
-              <Link to="/login" className="hover:text-blue-600 text-lg">Login</Link>
+              <Link to="/login" className={isActive("/login")}>Login</Link>
               <Link
                 to="/register"
-                className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 text-lg"
+                className={`px-5 py-2 rounded-md text-lg text-white ${location.pathname === "/register"
+                  ? "bg-blue-700"
+                  : "bg-blue-600 hover:bg-blue-700"
+                  }`}
               >
                 Register
               </Link>
@@ -83,31 +92,25 @@ const Navber = () => {
         </div>
 
         {/* Mobile Icon */}
-        <button
-          className="md:hidden"
-          onClick={() => setOpen(!open)}
-        >
+        <button className="md:hidden" onClick={() => setOpen(!open)}>
           {open ? <X size={30} /> : <Menu size={30} />}
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          open ? "max-h-[600px]" : "max-h-0"
-        }`}
-      >
+      {/* Mobile Dropdown */}
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+        open ? "max-h-[600px]" : "max-h-0"
+      }`}>
         <div className="flex flex-col items-center bg-white pb-6 pt-2">
 
-          <Link to="/" className="py-3 text-lg hover:text-orange-600">Home</Link>
-          <Link to="/pets" className="py-3 text-lg hover:text-orange-600">Pets & Supplies</Link>
+          <Link to="/" className={`py-3 text-lg ${isActive("/")}`}>Home</Link>
+          <Link to="/pets" className={`py-3 text-lg ${isActive("/pets")}`}>Pets & Supplies</Link>
 
-          {/* Logged-in only */}
           {user && (
             <>
-              <Link to="/add-listing" className="py-3 text-lg hover:text-orange-600">Add Listing</Link>
-              <Link to="/my-listings" className="py-3 text-lg hover:text-orange-600">My Listings</Link>
-              <Link to="/my-orders" className="py-3 text-lg hover:text-orange-600">My Orders</Link>
+              <Link to="/add-listing" className={`py-3 text-lg ${isActive("/add-listing")}`}>Add Listing</Link>
+              <Link to="/my-listings" className={`py-3 text-lg ${isActive("/my-listings")}`}>My Listings</Link>
+              <Link to="/my-orders" className={`py-3 text-lg ${isActive("/my-orders")}`}>My Orders</Link>
 
               <img
                 src={user.photoURL || "/default-avatar.png"}
@@ -125,13 +128,17 @@ const Navber = () => {
             </>
           )}
 
-          {/* If not logged in */}
           {!user && (
             <>
-              <Link to="/login" className="py-3 text-lg hover:text-blue-600">Login</Link>
+              <Link to="/login" className={`py-3 text-lg ${isActive("/login")}`}>Login</Link>
+
               <Link
                 to="/register"
-                className="py-3 bg-blue-600 text-white px-6 rounded-md hover:bg-blue-700 text-lg"
+                className={`py-3 px-6 rounded-md text-lg text-white ${
+                  location.pathname === "/register"
+                    ? "bg-blue-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
               >
                 Register
               </Link>
