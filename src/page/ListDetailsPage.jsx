@@ -100,108 +100,123 @@ const ListDetailsPage = () => {
           ORDER MODAL
       ========================== */}
       {openModal && (
-        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-          <div className="bg-white p-6 rounded-2xl w-full max-w-lg shadow-xl">
-            <h2 className="text-2xl font-bold mb-4">Confirm Your Order</h2>
+        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
 
-            {/* FORM */}
-            <form className="space-y-4">
-              <div>
-                <label className="font-medium">Buyer Name</label>
+          <div className="relative bg-white shadow-xl rounded-2xl p-8 w-full max-w-3xl max-h-[85vh] overflow-y-auto">
+
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Confirm Your Order</h2>
+
+            <form className="space-y-5">
+
+              {/* Buyer Name */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Buyer Name</label>
                 <input
                   type="text"
                   value={user?.displayName || ""}
                   readOnly
-                  className="w-full border px-3 py-2 rounded-lg bg-gray-100"
+                  className="w-full border p-2.5 rounded-xl bg-gray-100"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Email</label>
+              {/* Email */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Email</label>
                 <input
                   type="email"
                   value={user?.email || ""}
                   readOnly
-                  className="w-full border px-3 py-2 rounded-lg bg-gray-100"
+                  className="w-full border p-2.5 rounded-xl bg-gray-100"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Product ID</label>
+              {/* Listing ID */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Listing ID</label>
                 <input
                   type="text"
                   value={list._id}
                   readOnly
-                  className="w-full border px-3 py-2 rounded-lg bg-gray-100"
+                  className="w-full border p-2.5 rounded-xl bg-gray-100"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Product Name</label>
+              {/* Product/Listing Name */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Listing Name</label>
                 <input
                   type="text"
                   value={list.name}
                   readOnly
-                  className="w-full border px-3 py-2 rounded-lg bg-gray-100"
+                  className="w-full border p-2.5 rounded-xl bg-gray-100"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Quantity</label>
+              {/* Quantity */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Quantity</label>
                 <input
                   type="number"
-                  value={list.category.toLowerCase() === "pet" ? 1 : 1}
-                  readOnly={list.category.toLowerCase() === "pet"}
-                  className="w-full border px-3 py-2 rounded-lg"
+                  value={list.category?.toLowerCase() === "pet" ? 1 : ""}
+                  readOnly={list.category?.toLowerCase() === "pet"}
+                  placeholder="Enter quantity"
+                  className="w-full border p-2.5 rounded-xl"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Price</label>
+              {/* Price */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Price</label>
                 <input
                   type="text"
                   value={list.price}
                   readOnly
-                  className="w-full border px-3 py-2 rounded-lg bg-gray-100"
+                  className="w-full border p-2.5 rounded-xl bg-gray-100"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Address</label>
+              {/* Address */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Address</label>
                 <input
                   type="text"
                   placeholder="Enter your address"
-                  className="w-full border px-3 py-2 rounded-lg"
+                  className="w-full border p-2.5 rounded-xl"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Pickup Date</label>
+              {/* Date */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Pickup Date</label>
                 <input
                   type="date"
-                  className="w-full border px-3 py-2 rounded-lg"
+                  className="w-full border p-2.5 rounded-xl"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Phone Number</label>
+              {/* Phone */}
+              <div className="flex items-center gap-5">
+                <label className="w-40 font-semibold">Phone</label>
                 <input
                   type="text"
                   placeholder="Enter your phone number"
-                  className="w-full border px-3 py-2 rounded-lg"
+                  className="w-full border p-2.5 rounded-xl"
                 />
               </div>
 
-              <div>
-                <label className="font-medium">Additional Notes</label>
+              {/* Notes */}
+              <div className="flex items-start gap-5">
+                <label className="w-40 font-semibold mt-1">Additional Notes</label>
                 <textarea
                   placeholder="Write any notes (optional)"
-                  className="w-full border px-3 py-2 rounded-lg"
+                  rows={3}
+                  className="w-full border p-2.5 rounded-xl"
                 ></textarea>
               </div>
+
             </form>
 
-            {/* BUTTONS */}
+            {/* Buttons */}
             <div className="mt-6 flex justify-between">
               <button
                 onClick={() => setOpenModal(false)}
@@ -210,13 +225,25 @@ const ListDetailsPage = () => {
                 Cancel
               </button>
 
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700">
+              <button
+                className="px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+              >
                 Confirm Order
               </button>
             </div>
+
+            {/* Close X Button */}
+            <button
+              onClick={() => setOpenModal(false)}
+              className="absolute top-4 right-4 text-gray-600 hover:text-black text-xl"
+            >
+              ✕
+            </button>
+
           </div>
         </div>
       )}
+
     </div>
   );
 };

@@ -12,8 +12,8 @@ const RecentList = () => {
   }, []);
 
   return (
-    <div className="px-6 py-10 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8 text-yellow-800 tracking-tight">
+    <div className="px-6 py-10 max-w-7xl mx-auto mt-6">
+      <h1 className="text-3xl font-bold mb-8 text-yellow-800 tracking-tight text-center">
         Recent Added
       </h1>
 
@@ -69,7 +69,7 @@ const RecentList = () => {
                 className="w-full mt-4 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all"
               >
                 <Link to={`/listing/${item._id}`}>
-                View Details
+                See Details
                 </Link>
         
               </button>
