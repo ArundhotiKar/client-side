@@ -15,7 +15,7 @@ const Navber = () => {
       .catch((err) => console.error(err));
   };
 
-  // Active style function
+  // Active class
   const isActive = (path) =>
     location.pathname === path
       ? "text-orange-600 font-semibold"
@@ -59,7 +59,7 @@ const Navber = () => {
             <>
               <div className="relative group">
                 <img
-                  src={user.photoURL || "/default-avatar.png"}
+                  src={user?.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
                   className="w-12 h-12 rounded-full border object-cover"
                   alt="profile"
                 />
@@ -78,12 +78,14 @@ const Navber = () => {
           ) : (
             <>
               <Link to="/login" className={isActive("/login")}>Login</Link>
+
               <Link
                 to="/register"
-                className={`px-5 py-2 rounded-md text-lg text-white ${location.pathname === "/register"
-                  ? "bg-blue-700"
-                  : "bg-blue-600 hover:bg-blue-700"
-                  }`}
+                className={`px-5 py-2 rounded-md text-lg text-white ${
+                  location.pathname === "/register"
+                    ? "bg-blue-700"
+                    : "bg-blue-600 hover:bg-blue-700"
+                }`}
               >
                 Register
               </Link>
@@ -98,9 +100,11 @@ const Navber = () => {
       </div>
 
       {/* Mobile Dropdown */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ${
-        open ? "max-h-[600px]" : "max-h-0"
-      }`}>
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-[600px]" : "max-h-0"
+        }`}
+      >
         <div className="flex flex-col items-center bg-white pb-6 pt-2">
 
           <Link to="/" className={`py-3 text-lg ${isActive("/")}`}>Home</Link>
@@ -108,12 +112,18 @@ const Navber = () => {
 
           {user && (
             <>
-              <Link to="/add-listing" className={`py-3 text-lg ${isActive("/add-listing")}`}>Add Listing</Link>
-              <Link to="/my-listings" className={`py-3 text-lg ${isActive("/my-listings")}`}>My Listings</Link>
-              <Link to="/my-orders" className={`py-3 text-lg ${isActive("/my-orders")}`}>My Orders</Link>
+              <Link to="/add-listing" className={`py-3 text-lg ${isActive("/add-listing")}`}>
+                Add Listing
+              </Link>
+              <Link to="/my-listings" className={`py-3 text-lg ${isActive("/my-listings")}`}>
+                My Listings
+              </Link>
+              <Link to="/my-orders" className={`py-3 text-lg ${isActive("/my-orders")}`}>
+                My Orders
+              </Link>
 
               <img
-                src={user.photoURL || "/default-avatar.png"}
+                src={user?.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
                 className="w-20 h-20 rounded-full border my-4 object-cover"
                 alt="profile"
               />
