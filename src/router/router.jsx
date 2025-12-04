@@ -7,6 +7,7 @@ import ErrorPage from "../page/ErrorPage";
 import Home from "../page/Home";
 import CategoryFilteredPage from "../page/CategoryFilteredPage";
 import AddList from "../page/AddList";
+import ListDetailsPage from "../page/ListDetailsPage";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/add-listing",
         element: <AddList></AddList>
+      },
+      {
+        path: "/listing/:id",
+        element: <ListDetailsPage></ListDetailsPage>
       }
     ]
   },

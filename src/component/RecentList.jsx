@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const RecentList = () => {
   const [recentList, setRecentList] = useState([]);
@@ -64,9 +65,13 @@ const RecentList = () => {
               {/* BUTTON */}
               <button
                 onClick={() => (window.location.href = `/listing/${item._id}`)}
+                
                 className="w-full mt-4 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all"
               >
+                <Link to={`/listing/${item._id}`}>
                 View Details
+                </Link>
+        
               </button>
             </div>
           </div>
