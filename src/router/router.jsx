@@ -8,6 +8,7 @@ import Home from "../page/Home";
 import CategoryFilteredPage from "../page/CategoryFilteredPage";
 import AddList from "../page/AddList";
 import ListDetailsPage from "../page/ListDetailsPage";
+import PetSupplyPage from "../page/PetSupplyPage";
 
 
 const router = createBrowserRouter([
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/listing/:id",
         element: <ListDetailsPage></ListDetailsPage>
+      },
+      {
+        path: "/pets",
+        element: <PetSupplyPage></PetSupplyPage>
       }
     ]
   },
