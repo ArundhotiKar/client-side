@@ -20,7 +20,7 @@ const CategoryFilteredPage = () => {
   return (
     <div className="px-6 py-10 max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold mb-4 text-yellow-800 tracking-tight">
-        Available Pets & Supplies
+        Available <span className="text-blue-500">{categoryName}</span>
       </h1>
 
       {/* Grid */}

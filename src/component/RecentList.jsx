@@ -13,11 +13,11 @@ const RecentList = () => {
 
   return (
     <div className="px-6 py-10 max-w-7xl mx-auto mt-6">
-      <h1 className="text-3xl font-bold mb-8 text-yellow-800 tracking-tight text-center">
+      <h1 className="text-5xl font-bold mb-10 text-orange-600 tracking-tight text-center">
         Recent Added
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
         {recentList.slice(-6).map((item) => (
           <div
             key={item._id}

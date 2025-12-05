@@ -47,7 +47,7 @@ const Navber = () => {
           {user && (
             <>
               <Link to="/add-listing" className={isActive("/add-listing")}>Add Listing</Link>
-              <Link to="/my-listings" className={isActive("/my-listings")}>My Listings</Link>
+              <Link to="/my-lists" className={isActive("/my-lists")}>My Listings</Link>
               <Link to="/my-orders" className={isActive("/my-orders")}>My Orders</Link>
             </>
           )}
@@ -115,7 +115,7 @@ const Navber = () => {
               <Link to="/add-listing" className={`py-3 text-lg ${isActive("/add-listing")}`}>
                 Add Listing
               </Link>
-              <Link to="/my-listings" className={`py-3 text-lg ${isActive("/my-listings")}`}>
+              <Link to="/my-lists" className={`py-3 text-lg ${isActive("/my-lists")}`}>
                 My Listings
               </Link>
               <Link to="/my-orders" className={`py-3 text-lg ${isActive("/my-orders")}`}>

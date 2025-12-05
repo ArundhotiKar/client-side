@@ -9,6 +9,8 @@ import CategoryFilteredPage from "../page/CategoryFilteredPage";
 import AddList from "../page/AddList";
 import ListDetailsPage from "../page/ListDetailsPage";
 import PetSupplyPage from "../page/PetSupplyPage";
+import MyLists from "../page/MyLists";
+import UpdateList from "../page/UpdateList";
 
 
 const router = createBrowserRouter([
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "/pets",
         element: <PetSupplyPage></PetSupplyPage>
+      },
+      {
+        path: "/my-lists",
+        element: <MyLists></MyLists>
+      },
+      {
+        path: "update-list/:id",
+        element: <UpdateList></UpdateList>
       }
     ]
   },
