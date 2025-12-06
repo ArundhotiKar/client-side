@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Bounce, ToastContainer } from 'react-toastify';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../Provider/AuthProvider';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const UpdateList = () => {
     const { user } = useContext(AuthContext);
     const { id } = useParams();
     const [list, setList] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/addlist/${id}`)
@@ -42,12 +43,29 @@ const UpdateList = () => {
         //console.log("UPDATED DATA →", formData);
 
         axios.put(`http://localhost:5000/update/${id}`, formData)
-        .then(res =>{
-            console.log(res.data);
-        })
-        .catch(err=> {
-            console.log(err);
-        })
+            .then(res => {
+                console.log(res.data);
+                // Show success toast
+                toast.success("✅ Update Successful!", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    transition: Bounce,
+                    theme: "light",
+                });
+
+                // Delay redirect so toast is visible
+                setTimeout(() => {
+                    navigate('/my-lists');
+                }, 1000);
+
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
 
     return (
@@ -158,8 +176,23 @@ const UpdateList = () => {
                     Update
                 </button>
 
-                <ToastContainer position="top-center" autoClose={2000} transition={Bounce} />
+               
             </form>
+
+            {/* ToastContainer */}
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={3000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick={true}
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                            transition={Bounce}
+                        />
         </div>
     );
 };

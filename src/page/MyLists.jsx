@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const MyLists = () => {
     const [myList, setMyList] = useState([]);
@@ -14,7 +14,40 @@ const MyLists = () => {
             .catch((err) => console.error(err));
     }, [user?.email]);
 
-    console.log(myList);
+    
+    // ⭐ DELETE FUNCTION with SweetAlert
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/list/${id}`, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            
+                            // remove from UI
+                            setMyList(myList.filter(item => item._id !== id));
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your item has been deleted.',
+                                'success'
+                            );
+                        }
+                    })
+                    .catch((err) => console.error(err));
+            }
+        });
+    };
 
     return (
         <div className="max-w-5xl mx-auto my-10">
@@ -24,6 +57,7 @@ const MyLists = () => {
                 <table className="min-w-full border rounded-lg">
                     <thead className="bg-gray-200">
                         <tr>
+                            <th className="p-3 border">Photo</th>
                             <th className="p-3 border">Name</th>
                             <th className="p-3 border">Category</th>
                             <th className="p-3 border">Price</th>
@@ -35,7 +69,16 @@ const MyLists = () => {
                     <tbody>
                         {myList?.map((item) => (
                             <tr key={item._id} className="text-center">
-                                <td className="p-3 border">{item.name}</td>       
+
+                                <td className="p-3 border">
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="w-16 h-16 object-cover rounded-md mx-auto"
+                                    />
+                                </td>
+
+                                <td className="p-3 border">{item.name}</td>
                                 <td className="p-3 border">{item.category}</td>
                                 <td className="p-3 border">${item.price}</td>
                                 <td className="p-3 border">{item.location}</td>
@@ -48,7 +91,8 @@ const MyLists = () => {
                                         Update
                                     </Link>
 
-                                    <button
+                                    <button 
+                                        onClick={() => handleDelete(item._id)}
                                         className="bg-red-500 text-white px-3 py-1 rounded"
                                     >
                                         Delete
@@ -57,7 +101,6 @@ const MyLists = () => {
                             </tr>
                         ))}
                     </tbody>
-
                 </table>
 
                 {myList.length === 0 && (
@@ -66,8 +109,6 @@ const MyLists = () => {
                     </p>
                 )}
             </div>
-
-            <ToastContainer position="top-center" autoClose={1500} />
         </div>
     );
 };
