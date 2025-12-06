@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 
 const RecentList = () => {
   const [recentList, setRecentList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/addlist?limit=6")
       .then((res) => res.json())
-      .then((data) => setRecentList(data))
+      .then((data) => {
+        setRecentList(data)
+        setLoading(false);
+      })
       .catch((err) => console.error(err));
   }, []);
 
@@ -16,6 +21,13 @@ const RecentList = () => {
       <h1 className="text-5xl font-bold mb-10 text-orange-600 tracking-tight text-center">
         Recent Added
       </h1>
+
+      {/* 🔄 Loading Spinner */}
+      {loading && (
+        <div className="flex justify-center my-20">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 ">
         {recentList.slice(-6).map((item) => (
@@ -65,13 +77,13 @@ const RecentList = () => {
               {/* BUTTON */}
               <button
                 onClick={() => (window.location.href = `/listing/${item._id}`)}
-                
+
                 className="w-full mt-4 py-2.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all"
               >
                 <Link to={`/listing/${item._id}`}>
-                See Details
+                  See Details
                 </Link>
-        
+
               </button>
             </div>
           </div>

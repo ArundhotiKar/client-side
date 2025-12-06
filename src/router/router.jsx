@@ -11,6 +11,8 @@ import ListDetailsPage from "../page/ListDetailsPage";
 import PetSupplyPage from "../page/PetSupplyPage";
 import MyLists from "../page/MyLists";
 import UpdateList from "../page/UpdateList";
+import PrivateRoute from "./PrivateRoute";
+import MyOrders from "../page/MyOrders";
 
 
 const router = createBrowserRouter([
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/listing/:id",
-        element: <ListDetailsPage></ListDetailsPage>
+        element: <PrivateRoute><ListDetailsPage></ListDetailsPage></PrivateRoute> 
       },
       {
         path: "/pets",
@@ -51,8 +53,12 @@ const router = createBrowserRouter([
         element: <MyLists></MyLists>
       },
       {
-        path: "update-list/:id",
+        path: "/update-list/:id",
         element: <UpdateList></UpdateList>
+      },
+      {
+        path: "/my-orders",
+        element:<MyOrders></MyOrders>
       }
     ]
   },

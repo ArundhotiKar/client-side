@@ -3,9 +3,11 @@ import { useParams, Link } from "react-router-dom";
 
 const CategoryFilteredPage = () => {
   const { categoryName } = useParams();
+  const [loading, setLoading] = useState(true);
   const [recentList, setRecentList] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://localhost:5000/addlist")
       .then((res) => res.json())
       .then((data) => {
@@ -14,6 +16,7 @@ const CategoryFilteredPage = () => {
             item.category.toLowerCase() === categoryName.toLowerCase()
         );
         setRecentList(filtered);
+        setLoading(false);
       });
   }, [categoryName]);
 
@@ -22,6 +25,13 @@ const CategoryFilteredPage = () => {
       <h1 className="text-3xl font-bold mb-4 text-yellow-800 tracking-tight">
         Available <span className="text-blue-500">{categoryName}</span>
       </h1>
+
+      {/* 🔄 Loading Spinner */}
+      {loading && (
+        <div className="flex justify-center my-20">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+        </div>
+      )}
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
