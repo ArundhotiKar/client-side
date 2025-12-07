@@ -120,8 +120,8 @@ const AddList = () => {
                 </button>
             </form>
 
-            {/* ToastContainer */}
             <ToastContainer
+                theme="dark"
                 position="top-center"
                 autoClose={3000}
                 hideProgressBar={false}
@@ -131,7 +131,6 @@ const AddList = () => {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="light"
                 transition={Bounce}
             />
         </div>

@@ -8,7 +8,7 @@ const CategorySection = () => {
     { name: "Pets (Adoption)", icon: "🐶", value: "pets", nav: "pets" },
     { name: "Pet Food", icon: "🍖", value: "food", nav: "Pet Food" },
     { name: "Accessories", icon: "🧸", value: "accessories", nav: "Accessories" },
-    { name: "Pet Care Products", icon: "💊", value: "care-products", nav: "Pet Care Products" },
+    { name: "Pet Care Products", icon: "💊", value: "care-products", nav: "Care Products" },
   ];
 
   const handleCategoryClick = (category) => {

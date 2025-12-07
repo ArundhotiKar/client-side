@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 
 const RecentList = () => {
   const [recentList, setRecentList] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     fetch("http://localhost:5000/addlist?limit=6")
       .then((res) => res.json())
       .then((data) => {
@@ -47,7 +46,8 @@ const RecentList = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
 
               {/* Category tag */}
-              <span className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-sm font-semibold rounded-full shadow">
+              <span className="absolute bottom-4 right-4 px-3 py-1 text-sm font-semibold rounded-full shadow
+  bg-yellow-100 text-yellow-800 dark:bg-yellow-600 dark:text-yellow-100">
                 {item.category}
               </span>
             </div>

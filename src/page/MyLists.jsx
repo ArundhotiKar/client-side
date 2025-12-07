@@ -71,16 +71,17 @@ const MyLists = () => {
             {!loading && (
                 <div className="overflow-x-auto">
                     <table className="min-w-full border rounded-lg text-sm sm:text-base">
-                        <thead className="bg-gray-200">
+                        <thead className="bg-gray-200 dark:bg-gray-800">
                             <tr>
-                                <th className="p-2 sm:p-3 border">Photo</th>
-                                <th className="p-2 sm:p-3 border">Name</th>
-                                <th className="p-2 sm:p-3 border">Category</th>
-                                <th className="p-2 sm:p-3 border">Price</th>
-                                <th className="p-2 sm:p-3 border">Location</th>
-                                <th className="p-2 sm:p-3 border">Actions</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Photo</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Name</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Category</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Price</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Location</th>
+                                <th className="p-2 sm:p-3 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100">Actions</th>
                             </tr>
                         </thead>
+
 
                         <tbody>
                             {myList.map((item) => (

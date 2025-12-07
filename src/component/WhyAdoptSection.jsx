@@ -18,7 +18,7 @@ const WhyAdoptSection = () => {
             <div className="flex justify-center mb-4">
               <PawPrint size={48} className="text-orange-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Give Pets a Second Chance</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-amber-200">Give Pets a Second Chance</h3>
             <p className="text-gray-600">
               Many pets are abandoned or homeless—your adoption gives them a loving home.
             </p>
@@ -29,7 +29,7 @@ const WhyAdoptSection = () => {
             <div className="flex justify-center mb-4">
               <Home size={48} className="text-orange-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Safe & Verified Homes</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-amber-200">Safe & Verified Homes</h3>
             <p className="text-gray-600">
               PawMart ensures responsible adoption so pets go to caring families.
             </p>
@@ -40,7 +40,7 @@ const WhyAdoptSection = () => {
             <div className="flex justify-center mb-4">
               <ShieldCheck size={48} className="text-orange-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Health & Safety First</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-amber-200">Health & Safety First</h3>
             <p className="text-gray-600">
               We list only pets that are vaccinated, healthy, and checked by owners.
             </p>
@@ -51,7 +51,7 @@ const WhyAdoptSection = () => {
             <div className="flex justify-center mb-4">
               <Heart size={48} className="text-orange-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Spread Love, Save Lives</h3>
+            <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-amber-200">Spread Love, Save Lives</h3>
             <p className="text-gray-600">
               Adopting instead of buying reduces pet cruelty and supports animal welfare.
             </p>

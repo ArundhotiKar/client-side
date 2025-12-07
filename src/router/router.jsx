@@ -22,49 +22,60 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        handle: { title: 'Home — PawMart' }
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
+        handle: { title: 'Register — PawMart' }
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
+        handle: { title: 'Login — PawMart' }
       }, 
       {
         path: "/category-filtered-product/:categoryName",
-        element: <CategoryFilteredPage />
+        element: <CategoryFilteredPage />,
+        handle: { title: (match) => `${match.params?.categoryName || 'Category'} — PawMart` }
       },
       {
         path: "/add-listing",
-        element: <AddList></AddList>
+        element: <AddList></AddList>,
+        handle: { title: 'Add Listing — PawMart' }
       },
       {
         path: "/listing/:id",
-        element: <PrivateRoute><ListDetailsPage></ListDetailsPage></PrivateRoute> 
+        element: <PrivateRoute><ListDetailsPage></ListDetailsPage></PrivateRoute>,
+        handle: { title: (match) => `Listing ${match.params?.id ? '(' + match.params.id + ')' : ''} — PawMart` }
       },
       {
         path: "/pets",
-        element: <PetSupplyPage></PetSupplyPage>
+        element: <PetSupplyPage></PetSupplyPage>,
+        handle: { title: 'Pets & Supplies — PawMart' }
       },
       {
         path: "/my-lists",
-        element: <MyLists></MyLists>
+        element: <MyLists></MyLists>,
+        handle: { title: 'My Listings — PawMart' }
       },
       {
         path: "/update-list/:id",
-        element: <UpdateList></UpdateList>
+        element: <UpdateList></UpdateList>,
+        handle: { title: (match) => `Update Listing ${match.params?.id || ''} — PawMart` }
       },
       {
         path: "/my-orders",
-        element:<MyOrders></MyOrders>
+        element:<MyOrders></MyOrders>,
+        handle: { title: 'My Orders — PawMart' }
       }
     ]
   },
   {
     path: "*",
-    element: <ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>,
+    handle: { title: '404 — Page Not Found' }
   }
 
 ]);
