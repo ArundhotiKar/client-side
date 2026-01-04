@@ -113,7 +113,7 @@ const Navber = () => {
         {/* Mobile Icon */}
         {/* Mobile Icon */}
         <button
-          className="md:hidden p-2 rounded-full text-gray-800 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          className="md:hidden p-2 rounded-full  dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={30} /> : <Menu size={30} />}
