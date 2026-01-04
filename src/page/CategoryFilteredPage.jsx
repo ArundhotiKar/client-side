@@ -10,7 +10,7 @@ const CategoryFilteredPage = () => {
   const [recentList, setRecentList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addlist")
+    fetch("https://assignment10-chi.vercel.app/addlist")
       .then((res) => res.json())
       .then((data) => {
         const filtered = data.filter(

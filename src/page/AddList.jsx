@@ -23,7 +23,7 @@ const AddList = () => {
             email: form.email.value
         };
 
-        axios.post('http://localhost:5000/addlist', formData)
+        axios.post('https://assignment10-chi.vercel.app/addlist', formData)
             .then(res => {
                 // Show success toast
                 toast.success("✅ Adding Successful!", {

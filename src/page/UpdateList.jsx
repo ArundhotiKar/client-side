@@ -11,7 +11,7 @@ const UpdateList = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/addlist/${id}`)
+        axios.get(`https://assignment10-chi.vercel.app/addlist/${id}`)
             .then(res => setList(res.data))
             .catch(err => console.log(err));
     }, [id]);
@@ -42,7 +42,7 @@ const UpdateList = () => {
 
         //console.log("UPDATED DATA →", formData);
 
-        axios.put(`http://localhost:5000/update/${id}`, formData)
+        axios.put(`https://assignment10-chi.vercel.app/update/${id}`, formData)
             .then(res => {
                 console.log(res.data);
                 // Show success toast

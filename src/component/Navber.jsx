@@ -34,10 +34,10 @@ const Navber = () => {
   const isActive = (path) =>
     location.pathname === path
       ? "text-orange-600 dark:text-orange-400 font-semibold"
-      : "text-gray-800 dark:text-gray-200 hover:text-orange-600 dark:hover:text-orange-300";
+      : " dark:text-white hover:text-orange-600 dark:hover:text-orange-300";
 
   return (
-    <nav className="w-full bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors">
+    <nav className="w-full dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
 
         {/* Logo */}
@@ -127,7 +127,7 @@ const Navber = () => {
           }`}
       >
         {/* Ensure dropdown background and text adapt to theme; make links full-width with hover states */}
-        <div className="flex flex-col items-center bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 pb-6 pt-2 w-full">
+        <div className="flex flex-col items-center  dark:bg-gray-900  dark:text-gray-100 pb-6 pt-2 w-full">
           {/* Menu Items */}
           <Link to="/" className={`w-full py-3 text-lg text-center ${isActive("/")} dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800`}>Home</Link>
           <Link to="/pets" className={`w-full py-3 text-lg text-center ${isActive("/pets")} dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800`}>Pets & Supplies</Link>

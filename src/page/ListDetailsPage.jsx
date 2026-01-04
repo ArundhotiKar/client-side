@@ -21,7 +21,7 @@ const ListDetailsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`http://localhost:5000/addlist/${encodeURIComponent(id)}`);
+        const res = await fetch(`https://assignment10-chi.vercel.app/addlist/${encodeURIComponent(id)}`);
         if (!res.ok) {
           const text = await res.text();
           throw new Error(`Request failed: ${res.status} ${res.statusText} - ${text}`);
@@ -80,7 +80,7 @@ const ListDetailsPage = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/addoder", orderData);
+      await axios.post("https://assignment10-chi.vercel.app/addoder", orderData);
 
       toast.success("✅ Order successfully confirm", {
         position: "top-center",

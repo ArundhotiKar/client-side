@@ -10,7 +10,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/myorder?email=${user?.email}`)
+        fetch(`https://assignment10-chi.vercel.app/myorder?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setMyOrders(data);

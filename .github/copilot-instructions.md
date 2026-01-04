@@ -13,7 +13,7 @@ Key locations
 
 Big-picture architecture & data flow
 - Client is a single-page React app bootstrapped by Vite (`npm run dev`), using React Router (v6 createBrowserRouter) and an `AuthProvider` for authentication state.
-- Server is an Express app connecting to MongoDB. Client fetches directly from `http://localhost:5000` endpoints (no API proxy configured). Common endpoints:
+- Server is an Express app connecting to MongoDB. Client fetches directly from `https://assignment10-chi.vercel.app` endpoints (no API proxy configured). Common endpoints:
   - GET `/addlist` — get all lists
   - GET `/addlist/:id` — get one list (used by `ListDetailsPage.jsx`)
   - POST `/addlist` — create a listing
@@ -31,7 +31,7 @@ Environment & run instructions (developer flows)
   - Install: `cd server-side` then `npm install`
   - Env: create `.env` with `MONGO_URL=<mongo connection string>`
   - Start: `npm start` (uses `nodemon index.js`) — listens on port `5000`
-- Typical debug run: start server (port 5000) in one terminal, then run client dev server in another terminal. The client expects the API at `http://localhost:5000`.
+- Typical debug run: start server (port 5000) in one terminal, then run client dev server in another terminal. The client expects the API at `https://assignment10-chi.vercel.app`.
 
 Project-specific conventions & patterns
 - Environment variables
@@ -48,13 +48,13 @@ Integration points / external dependencies
 - No CI/test harness configured; `server-side` has no tests; client has ESLint configured (`npm run lint`).
 
 Agent guidance & safety checks
-- When changing API routes: update `server-side/index.js` first and then update all client calls (search `http://localhost:5000` occurrences).
+- When changing API routes: update `server-side/index.js` first and then update all client calls (search `https://assignment10-chi.vercel.app` occurrences).
 - Use existing context hooks: prefer `AuthContext` for user info instead of reading `localStorage` or re-querying Firebase.
 - Do not hardcode secrets. Client Firebase keys must remain in Vite env vars, server DB URL must stay in `.env`.
 - When editing UI routes, update `src/router/router.jsx` so Nav and route structure stay consistent.
 
 Examples (quick answers)
-- To fetch a listing by id (client): `fetch('http://localhost:5000/addlist/' + encodeURIComponent(id))` — see `ListDetailsPage.jsx` for error handling and mount safety pattern.
+- To fetch a listing by id (client): `fetch('https://assignment10-chi.vercel.app/addlist/' + encodeURIComponent(id))` — see `ListDetailsPage.jsx` for error handling and mount safety pattern.
 - To add a listing (server): POST JSON to `/addlist` — server will add `createdAt`.
 - To run both dev servers locally: open two terminals, run `cd server-side; npm start` and `cd client-side; npm run dev`.
 

@@ -6,7 +6,7 @@ const RecentList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addlist?limit=6")
+    fetch("https://assignment10-chi.vercel.app/addlist?limit=6")
       .then((res) => res.json())
       .then((data) => {
         setRecentList(data)

@@ -11,7 +11,7 @@ const MyLists = () => {
     useEffect(() => {
         setLoading(true);
 
-        fetch(`http://localhost:5000/myadded-lists?email=${user?.email}`)
+        fetch(`https://assignment10-chi.vercel.app/myadded-lists?email=${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setMyList(data);
@@ -35,7 +35,7 @@ const MyLists = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/list/${id}`, {
+                fetch(`https://assignment10-chi.vercel.app/list/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
