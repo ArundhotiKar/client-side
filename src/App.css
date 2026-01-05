@@ -1,0 +1,51 @@
+/* Slider animations and hint styles */
+.slide-content {
+	opacity: 0;
+	transform: translateY(18px);
+	transition: opacity 700ms ease, transform 700ms cubic-bezier(.22,.9,.37,1);
+}
+
+/* Swiper adds the class 'swiper-slide-active' to the active slide */
+.swiper-slide-active .slide-content {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Slight scale on active slide image for subtle parallax */
+.swiper-slide-active img {
+	transform: scale(1.02);
+	transition: transform 1200ms ease;
+}
+
+/* Style default Swiper nav buttons to match theme */
+.swiper-button-next,
+.swiper-button-prev {
+	color: white;
+	--tw-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Make bullets more visible */
+.swiper-pagination-bullet {
+	background: rgba(255,255,255,0.6);
+	opacity: 1;
+}
+.swiper-pagination-bullet-active {
+	background: #f97316;
+}
+
+/* Down-arrow visual hint container */
+.down-hint svg {
+	filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+
+/* Subtle gradient fade at bottom of slider area to suggest more content */
+.slider-bottom-fade {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 6rem;
+	background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.9) 100%);
+	pointer-events: none;
+}
+

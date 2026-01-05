@@ -13,6 +13,10 @@ import MyLists from "../page/MyLists";
 import UpdateList from "../page/UpdateList";
 import PrivateRoute from "./PrivateRoute";
 import MyOrders from "../page/MyOrders";
+import Dashboard from "../Dashboard/Dashboard";
+import Profile from "../Dashboard/Profile";
+import Community from "../Dashboard/Community";
+import DashboardAnalytics from "../Dashboard/DashboardAnalytics";
 
 
 const router = createBrowserRouter([
@@ -34,7 +38,7 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login></Login>,
         handle: { title: 'Login — PawMart' }
-      }, 
+      },
       {
         path: "/category-filtered-product/:categoryName",
         element: <CategoryFilteredPage />,
@@ -67,8 +71,25 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-orders",
-        element:<MyOrders></MyOrders>,
+        element: <MyOrders></MyOrders>,
         handle: { title: 'My Orders — PawMart' }
+      },
+      {
+        path: "/my-profile",
+        element: <PrivateRoute><Profile /></PrivateRoute>,
+        handle: { title: 'My Profile — PawMart' }
+      }
+      ,
+      {
+        path: "/dashboard",
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        children: [
+          { index: true, element: <DashboardAnalytics /> },
+          { path: "profile", element: <Profile /> },
+          { path: "community", element: <Community /> },
+          { path: "analytics", element: <DashboardAnalytics /> }
+        ],
+        handle: { title: 'Dashboard — PawMart' }
       }
     ]
   },

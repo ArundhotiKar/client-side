@@ -130,7 +130,7 @@ const ListDetailsPage = () => {
 
         {/* CATEGORY ROW */}
         <div className="mt-2 flex items-center gap-2  dark:text-amber-200">
-          <span className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-800 font-medium">
+          <span className="px-3 py-1 text-sm rounded-full  dark:bg-gray-800 font-medium shadow-inner border border-gray-300/40 dark:border-gray-600/40">
             {list?.category}
           </span>
         </div>

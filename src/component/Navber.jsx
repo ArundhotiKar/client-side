@@ -177,12 +177,14 @@ const Navber = () => {
                 />
                 <p className="font-semibold text-gray-800 dark:text-gray-200">{user.displayName}</p>
               </div>
-              <Link to="/my-profile" className="w-full py-3 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                My Profile
-              </Link>
-              <Link to="/dashboard" className="w-full py-3 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                Dashboard
-              </Link>
+              <div className="flex  space-x-4">
+                <Link to="/my-profile" className="w-full py-3 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                  My Profile
+                </Link>
+                <Link to="/dashboard" className="w-full py-3 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                  Dashboard
+                </Link>
+              </div>
               <button
                 onClick={handleLogout}
                 className="w-full py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
