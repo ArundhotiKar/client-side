@@ -89,7 +89,7 @@ const MyOrders = () => {
                             <thead className="bg-gray-100 dark:bg-gray-900">
                                 <tr>
                                     <th className="px-2 sm:px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
-                                        Listing Name
+                                        Product Name
                                     </th>
                                     <th className="px-2 sm:px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
                                         Buyer Name
@@ -107,7 +107,7 @@ const MyOrders = () => {
                                         Date
                                     </th>
                                     <th className="px-2 sm:px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-100 text-xs sm:text-sm">
-                                        Phone
+                                        Phone No.
                                     </th>
                                 </tr>
                             </thead>
@@ -118,7 +118,7 @@ const MyOrders = () => {
                                 {myOrders.map((order, index) => (
                                     <tr
                                         key={index}
-                                        className="text-center border-b border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                                        className="text-center border-b border-gray-200 dark:border-gray-700  dark:hover:bg-gray-800 transition"
                                     >
                                         <td className="px-2 sm:px-4 py-2 text-xs sm:text-sm">{order.listingName}</td>
                                         <td className="px-2 sm:px-4 py-2 text-xs sm:text-sm">{order.buyerName}</td>

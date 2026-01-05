@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import { Bounce, toast, ToastContainer } from "react-toastify";
@@ -52,7 +52,9 @@ const ListDetailsPage = () => {
     };
   }, [id]);
 
-  if (loading) return <div className="text-center text-xl py-10">Loading...</div>;
+  if (loading) return <div className="flex justify-center my-20">
+    <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+  </div>;
   if (error)
     return (
       <div className="max-w-4xl mx-auto p-6 text-center">
@@ -109,7 +111,7 @@ const ListDetailsPage = () => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       {/* MAIN WRAPPER */}
-      <div className="mt-6 bg-gradient-to-b from-gray-50 to-white dark:from-[#101010] dark:to-[#0A0A0A] 
+      <div className="mt-6  dark:from-[#101010] dark:to-[#0A0A0A] 
               p-6 rounded-3xl shadow-xl border border-gray-200/60 dark:border-gray-700/50">
 
         {/* IMAGE WITH BORDER & HOVER */}
@@ -122,30 +124,30 @@ const ListDetailsPage = () => {
         </div>
 
         {/* TITLE */}
-        <h1 className="text-4xl font-extrabold mt-5 text-gray-900 dark:text-amber-200 tracking-tight">
+        <h1 className="text-4xl font-extrabold mt-5  dark:text-amber-200 tracking-tight">
           {list?.name}
         </h1>
 
         {/* CATEGORY ROW */}
-        <div className="mt-2 flex items-center gap-2 text-gray-600 dark:text-amber-200">
+        <div className="mt-2 flex items-center gap-2  dark:text-amber-200">
           <span className="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-800 font-medium">
             {list?.category}
           </span>
         </div>
 
         {/* OWNER EMAIL */}
-        <div className="mt-4 flex items-center gap-3 text-gray-700 dark:text-amber-200">
+        <div className="mt-4 flex items-center gap-3  dark:text-amber-200">
           <span className="text-xl">👤</span>
           <p className="text-lg font-medium">Owner: {list?.email}</p>
         </div>
 
         {/* DESCRIPTION */}
-        <p className="mt-4 text-gray-700 dark:text-amber-200 leading-relaxed">
+        <p className="mt-4  dark:text-amber-200 leading-relaxed">
           {list?.description}
         </p>
 
         {/* PRICE BOX */}
-        <div className="mt-6 p-5 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-gray-300/40 dark:border-gray-600/40 shadow-inner">
+        <div className="mt-6 p-5 rounded-2xl  dark:bg-gray-800 border border-gray-300/40 dark:border-gray-600/40 shadow-inner">
           {list?.price === 0 ? (
             <p className="text-3xl font-bold text-green-600 dark:text-green-400 text-center">
               Free for Adoption
@@ -158,7 +160,7 @@ const ListDetailsPage = () => {
         </div>
 
         {/* LOCATION */}
-        <div className="mt-4 flex items-center gap-3 text-lg text-gray-700 dark:text-amber-200">
+        <div className="mt-4 flex items-center gap-3 text-lg  dark:text-amber-200">
           <span className="text-xl">📍</span>
           <span className="font-semibold">{list?.location}</span>
         </div>

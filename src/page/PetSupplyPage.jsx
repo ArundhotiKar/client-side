@@ -45,13 +45,13 @@ const PetSupplyPage = () => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full md:w-1/2 px-4 py-2 border rounded-lg 
-                    bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 
+        focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
 
                 <select
                     className="px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 
-                    focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                 >
@@ -64,76 +64,70 @@ const PetSupplyPage = () => {
             </div>
 
             {/* Loading Spinner */}
-            {loading && (
+            {loading ? (
                 <div className="flex justify-center my-20">
                     <div className="w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
                 </div>
-            )}
-
-            {/* List */}
-            {!loading && (
+            ) : (
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                     {filteredList.map((item, index) => (
                         <motion.div
                             key={item._id}
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.3, duration: 0.5 }}
-                            className="bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                            transition={{ delay: index * 0.2, duration: 0.5 }}
+                            className=" dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
                         >
                             {/* IMAGE */}
-                            <div className="relative h-60 overflow-hidden">
+                            <div className="relative h-48 md:h-52 lg:h-56 overflow-hidden rounded-t-2xl flex-shrink-0">
                                 <img
                                     src={item.image}
                                     alt={item.name}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
-
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-
-                                {/* Tooltip target */}
                                 <span
                                     data-tooltip-id={`tip-${item._id}`}
                                     data-tooltip-content={`Category: ${item.category}`}
-                                    className="absolute bottom-4 right-4 px-3 py-1 text-sm font-semibold rounded-full shadow
-                                    bg-yellow-100 text-yellow-800 dark:bg-yellow-600 dark:text-yellow-100"
+                                    className="absolute bottom-3 right-3 px-2 py-1 text-xs font-semibold rounded-full shadow
+                  bg-yellow-100 text-yellow-800 dark:bg-yellow-600 dark:text-yellow-100"
                                 >
                                     {item.category}
                                 </span>
-
-                                {/* Tooltip Component */}
                                 <ReactTooltip id={`tip-${item._id}`} place="top" effect="solid" />
                             </div>
 
                             {/* CONTENT */}
-                            <div className="p-5 space-y-3">
-                                <h2 className="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-600 transition">
-                                    {item.name}
-                                </h2>
+                            <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h2 className="text-lg font-bold  dark:text-gray-100 group-hover:text-blue-600 transition">
+                                        {item.name}
+                                    </h2>
 
-                                {item.price === 0 ? (
-                                    <p className="text-green-600 dark:text-green-400 font-semibold text-lg">
-                                        Free for Adoption
-                                    </p>
-                                ) : (
-                                    <p className="text-gray-900 dark:text-gray-200 font-semibold text-lg">
-                                        ${item.price}
-                                    </p>
-                                )}
+                                    {item.price === 0 ? (
+                                        <p className="text-green-600 dark:text-green-400 font-semibold text-base">
+                                            Free for Adoption
+                                        </p>
+                                    ) : (
+                                        <p className="dark:text-gray-200 font-semibold text-base">
+                                            ${item.price}
+                                        </p>
+                                    )}
 
-                                <p className="text-gray-600 dark:text-gray-300 flex items-center gap-1">
-                                    <span className="text-xl">📍</span>
-                                    <span className="font-medium">{item.location}</span>
-                                </p>
+                                    <p className=" dark:text-gray-300 flex items-center gap-1 text-sm mt-1">
+                                        <span className="text-lg">📍</span>
+                                        <span className="font-medium">{item.location}</span>
+                                    </p>
+                                </div>
 
                                 <Link
                                     to={`/listing/${item._id}`}
-                                    className="block w-full mt-4 py-2.5 bg-blue-600 dark:bg-blue-500 text-center text-white font-semibold rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-all"
+                                    className="block w-full mt-3 py-2 bg-blue-600 dark:bg-blue-500 text-center text-white font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-all"
                                 >
                                     View Details
                                 </Link>
@@ -150,6 +144,7 @@ const PetSupplyPage = () => {
             )}
         </div>
     );
+
 };
 
 export default PetSupplyPage;
