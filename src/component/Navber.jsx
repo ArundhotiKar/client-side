@@ -37,7 +37,8 @@ const Navber = () => {
       : "hover:text-orange-600 dark:hover:text-orange-300";
 
   return (
-    <nav className="w-full dark:bg-gray-900 shadow-md top-0 z-50">
+    <nav className="w-full bg-white  dark:bg-gray-900 sticky top-0 z-50 shadow-md">
+
       <div className="max-w-8xl mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3">
