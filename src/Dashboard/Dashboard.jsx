@@ -13,7 +13,7 @@ const Dashboard = () => {
                             className={({ isActive }) =>
                                 (isActive
                                     ? 'bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white'
-                                    :'font-semibold  dark:text-gray-100 hover:bg-gray-100') + ' px-3 py-2 rounded-lg'
+                                    :'font-semibold  dark:text-gray-100 hover:bg-gray-700') + ' px-3 py-2 rounded-lg'
                             }
                         >
                             My Profile
@@ -24,7 +24,7 @@ const Dashboard = () => {
                             className={({ isActive }) =>
                                 (isActive
                                     ? 'bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white'
-                                    : 'font-semibold  hover:bg-gray-100') + ' px-3 py-2 rounded-lg'
+                                    : 'font-semibold  hover:bg-gray-700') + ' px-3 py-2 rounded-lg'
                             }
                         >
                             Community
@@ -34,7 +34,7 @@ const Dashboard = () => {
                             className={({ isActive }) =>
                                 (isActive
                                     ? 'bg-gradient-to-r from-[#f97316] to-[#f59e0b] text-white'
-                                    : 'font-semibold  hover:bg-gray-100') + ' px-3 py-2 rounded-lg'
+                                    : 'font-semibold  hover:bg-gray-700') + ' px-3 py-2 rounded-lg'
                             }
                         >
                             Analytics

@@ -3,7 +3,7 @@ import { Heart, ShieldCheck, Home, PawPrint } from "lucide-react";
 
 const WhyAdoptSection = () => {
   return (
-    <div className="w-full py-16 mt-14  transition-colors">
+    <div className="w-full py-10   transition-colors">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}

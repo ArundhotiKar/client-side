@@ -19,7 +19,7 @@ const RecentList = () => {
   }, []);
 
   return (
-    <div className="px-6 py-10 max-w-7xl mx-auto mt-6">
+    <div className=" py-10 max-w-7xl mx-auto mt-6">
       <h1 className="text-5xl font-bold mb-10 text-orange-600 tracking-tight text-center">
         Recent Added
       </h1>

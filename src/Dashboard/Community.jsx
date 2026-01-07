@@ -10,9 +10,6 @@ const Community = () => {
 
   return (
     <div>
-      
-      
-
       <CommunityFeatures userId={user.uid} />
     </div>
   );

@@ -18,7 +18,7 @@ const CommunityFeatures = ({ userId: propUserId }) => {
         name: "",
     });
 
-    const backendUrl = "http://localhost:5000";
+    const backendUrl = "https://assignment10-chi.vercel.app";
 
     // 🔹 Fetch all reviews
     const fetchReviews = async () => {

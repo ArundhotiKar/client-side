@@ -27,31 +27,35 @@ const CategorySection = () => {
             key={cat.name}
             onClick={() => handleCategoryClick(cat.nav)}
             className="cursor-pointer group
-             dark:bg-white
-              shadow-2xl rounded-3xl p-8 h-96
-              flex flex-col items-center justify-center
-              transition duration-500 hover:scale-105"
+                 bg-white dark:bg-gray-800
+                 shadow-2xl rounded-3xl p-8 h-80
+                 flex flex-col items-center justify-center
+                 transition duration-500 hover:scale-105"
           >
             {/* Icon */}
-            <div className="bg-gray-100 dark:bg-gray-700
-              w-28 h-28 rounded-full
-              flex items-center justify-center
-              text-9xl mb-6 shadow-lg">
+            <div className="w-28 h-28 rounded-full
+                      flex items-center justify-center
+                      text-9xl mb-6 shadow-lg
+                      bg-orange-100 dark:bg-orange-600
+                      text-orange-600 dark:text-white">
               {cat.icon}
             </div>
 
             {/* Title */}
-            <p className="text-2xl font-bold  dark:text-white text-center">
+            <p className="text-2xl font-bold text-gray-900 dark:text-white text-center">
               {cat.name}
             </p>
 
             {/* Hover underline */}
             <span className="block w-16 h-1 bg-orange-500 rounded-full mt-3
-              opacity-0 group-hover:opacity-100 transition duration-300">
+                       opacity-0 group-hover:opacity-100
+                       transition duration-300">
             </span>
           </div>
         ))}
       </div>
+
+
     </div>
   );
 };

@@ -24,7 +24,7 @@ ChartJS.register(
     Legend
 );
 
-const backendUrl = 'http://localhost:5000';
+const backendUrl = 'https://assignment10-chi.vercel.app';
 
 const DashboardAnalytics = () => {
     const [reviews, setReviews] = useState([]);
