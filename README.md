@@ -1,6 +1,6 @@
 # PawMart 🐾
 
-**Live Site:** (https://lambent-praline-717d28.netlify.app/)
+**Live Site:** (https://endearing-hotteok-408e1f.netlify.app/)
 
 PawMart is a one-stop online platform for pet lovers, offering a wide range of products and services for pets.
 
